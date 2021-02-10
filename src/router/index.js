@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
+
 import ResultsPage from '../pages/ResultsPage.vue';
-import CreateResultForm from '../components/results/CreateResultForm.vue'
+
 const routes = [
   {
     path: '/',
@@ -10,9 +11,10 @@ const routes = [
     path: '/results',
     component: ResultsPage
   },
+  
   {
     path: '/results/add',
-    component: CreateResultForm
+    component: () => import('../components/results/CreateResultForm.vue')
   }
     
 ]

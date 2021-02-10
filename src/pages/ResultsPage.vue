@@ -7,35 +7,44 @@
       </ion-button>
     </template>
 <!-- end added  -->
-   <ion-list>
+
+   <!-- <ion-list>
        <ion-item>P1</ion-item>
        <ion-item>+25</ion-item>
        <ion-item>LAP 42</ion-item>
        <ion-item>IN 3</ion-item>
        <ion-item>888888<br>2</ion-item>
-   </ion-list>
+   </ion-list> -->
+
+   <results-list :results="results"></results-list>
 </base-lay-out>        
 </template>
 
 <script>
-import { 
-    IonList,
-    IonItem,
-    } from '@ionic/vue';
+import { IonButton, IonIcon } from '@ionic/vue';
+
 import { add } from 'ionicons/icons'    
+
 import BaseLayOut from '../components/base/BaseLayout.vue'
+
+import ResultsList from '../results/ResultsList.vue';
 
 
 export default {
     components: {
-        IonItem,
-        IonList,
-        BaseLayOut
+        BaseLayOut,
+        ResultsList,
+        IonButton,
+        IonIcon
     },
     data(){
         return { add }
+    },
+    computed: {
+        results(){
+            return this.$store.getters.results; 
+        }
     }
-    
     
 }
  </script>
